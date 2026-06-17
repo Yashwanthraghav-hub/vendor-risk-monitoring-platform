@@ -1,0 +1,118 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { Shield, KeyRound, Mail, CheckCircle, AlertCircle } from 'lucide-react';
+
+function ForgotPassword() {
+  const { forgotPassword } = useAuth();
+  const [email, setEmail] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setSuccess(false);
+    setSubmitting(true);
+
+    const res = await forgotPassword(email, newPassword);
+    setSubmitting(false);
+
+    if (res.success) {
+      setSuccess(true);
+    } else {
+      setError(res.error);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white p-6 font-sans relative overflow-hidden">
+      
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+      <div className="w-full max-w-md bg-slate-950 border border-white/5 rounded-3xl p-8 shadow-2xl relative z-10 space-y-6">
+        
+        <div className="text-center space-y-2">
+          <Link to="/" className="inline-flex p-3 bg-brand-500/10 border border-brand-500/20 rounded-2xl mb-1 hover:scale-105 transition-transform">
+            <Shield className="h-8 w-8 text-brand-400" />
+          </Link>
+          <h2 className="text-2xl font-extrabold font-sans tracking-tight">Recover Password</h2>
+          <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Vendor Risk Monitoring Platform</p>
+        </div>
+
+        {error && (
+          <div className="p-3.5 bg-red-500/15 border border-red-500/20 rounded-xl flex items-center space-x-2.5 text-xs text-red-300 font-semibold">
+            <AlertCircle className="h-4.5 w-4.5 text-red-400 shrink-0" />
+            <span>{error}</span>
+          </div>
+        )}
+
+        {success ? (
+          <div className="p-5 bg-emerald-500/10 border border-emerald-500/25 rounded-2xl text-center space-y-3">
+            <CheckCircle className="h-10 w-10 text-emerald-400 mx-auto" />
+            <h4 className="font-bold text-emerald-300 font-sans">Password Updated Successfully</h4>
+            <p className="text-xs text-slate-400 leading-normal">Your password has been changed. You can now use the new credentials to login.</p>
+            <div className="pt-2">
+              <Link to="/login" className="inline-block bg-brand-500 hover:bg-brand-600 text-white font-bold px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition-all">
+                Return to Sign In
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-1">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">Account Email</label>
+              <div className="relative">
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-semibold"
+                  placeholder="name@company.com"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">New Password</label>
+              <div className="relative">
+                <KeyRound className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <input
+                  type="password"
+                  required
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all font-semibold"
+                  placeholder="••••••••"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full bg-brand-500 hover:bg-brand-600 disabled:opacity-50 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-brand-500/20 hover:scale-102 active:scale-98 transition-all text-sm uppercase tracking-wider"
+            >
+              {submitting ? 'Updating Password...' : 'Reset Password'}
+            </button>
+          </form>
+        )}
+
+        <div className="text-center">
+          <Link to="/login" className="text-xs text-brand-400 hover:text-brand-300 font-bold transition-all">
+            Back to Sign In
+          </Link>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+export default ForgotPassword;

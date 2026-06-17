@@ -1,0 +1,49 @@
+[
+  {
+    "_id": "racaey68g",
+    "userId": "system",
+    "userEmail": "system@vrmp.local",
+    "action": "System Initialization",
+    "details": "Initial database configuration and mock seeding execution.",
+    "timestamp": "2026-06-17T13:29:42.497Z",
+    "createdAt": "2026-06-17T13:29:42.498Z",
+    "updatedAt": "2026-06-17T13:29:42.498Z"
+  },
+  {
+    "_id": "i98t0zyk5",
+    "userId": "admin_seeded",
+    "userEmail": "admin@vendorrisk.com",
+    "action": "User Login",
+    "details": "Admin user logged in from dashboard console.",
+    "timestamp": "2026-06-17T12:29:42.499Z",
+    "createdAt": "2026-06-17T13:29:42.499Z",
+    "updatedAt": "2026-06-17T13:29:42.499Z"
+  },
+  {
+    "_id": "6py0vjp4w",
+    "userId": "5vz0dmpuj",
+    "userEmail": "admin@vendorrisk.com",
+    "action": "User Login",
+    "details": "User successfully logged in. Role: Admin, Department: Information Security",
+    "createdAt": "2026-06-17T13:32:41.891Z",
+    "updatedAt": "2026-06-17T13:32:41.891Z"
+  },
+  {
+    "_id": "yeotqb84f",
+    "userId": "5vz0dmpuj",
+    "userEmail": "admin@vendorrisk.com",
+    "action": "Generate Report",
+    "details": "Generated new report: 'Q2 Supply chain ' (Type: Risk, Format: PDF).",
+    "createdAt": "2026-06-17T13:33:07.918Z",
+    "updatedAt": "2026-06-17T13:33:07.918Z"
+  },
+  {
+    "_id": "ejqjuzxgb",
+    "userId": "5vz0dmpuj",
+    "userEmail": "admin@vendorrisk.com",
+    "action": "Upload Compliance Document",
+    "details": "Uploaded compliance document: ISO Certificate for vendor Apex Cloud Systems. Expiry date: 14/12/2026.",
+    "createdAt": "2026-06-17T13:33:32.967Z",
+    "updatedAt": "2026-06-17T13:33:32.967Z"
+  }
+]

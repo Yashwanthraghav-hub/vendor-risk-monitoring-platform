@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "koiy9vi32",
+    "vendorId": "uyfvu5wke",
+    "type": "High Risk Score",
+    "severity": "High",
+    "message": "Vendor 'Global Logistics Corp' has exceeded the risk threshold with a score of 78.",
+    "isRead": false,
+    "createdAt": "2026-06-17T13:29:42.332Z",
+    "updatedAt": "2026-06-17T13:29:42.332Z"
+  },
+  {
+    "_id": "axvvlpimb",
+    "vendorId": "uyfvu5wke",
+    "type": "Compliance Expiry",
+    "severity": "High",
+    "message": "ISO Certificate for 'Global Logistics Corp' has expired!",
+    "isRead": false,
+    "createdAt": "2026-06-17T13:29:42.333Z",
+    "updatedAt": "2026-06-17T13:29:42.333Z"
+  },
+  {
+    "_id": "fg1tj92p2",
+    "vendorId": "z0oanp5e3",
+    "type": "Performance Drop",
+    "severity": "Medium",
+    "message": "Vendor 'Quantum Tech Hardware' has shown repeated delivery delays, dropping below 85% on-time delivery.",
+    "isRead": false,
+    "createdAt": "2026-06-17T13:29:42.334Z",
+    "updatedAt": "2026-06-17T13:29:42.334Z"
+  },
+  {
+    "_id": "tg8pdgy1h",
+    "vendorId": "z0oanp5e3",
+    "type": "Contract Expiry",
+    "severity": "Low",
+    "message": "Contract for 'Quantum Tech Hardware' is set to expire on 1/3/2026.",
+    "isRead": false,
+    "createdAt": "2026-06-17T13:29:42.495Z",
+    "updatedAt": "2026-06-17T13:29:42.495Z"
+  }
+]
